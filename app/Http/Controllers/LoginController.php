@@ -55,4 +55,15 @@ class LoginController extends Controller
 
         return $user;
     }
+
+    /**
+     * @return view
+     */
+    public function logout()
+    {
+        auth()->logout();
+    
+        return redirect()->to('/login');
+    
+    }
 }
