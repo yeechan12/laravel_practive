@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Models\User;
+use App\Models\Product;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
@@ -17,13 +17,14 @@ use Illuminate\Support\Str;
 |
 */
 
-$factory->define(User::class, function (Faker $faker) {
+$factory->define(Product::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
-        'address' => $faker->address,
-        'phone' => $this->faker->phoneNumber,
-        'remember_token' => Str::random(10),
+        'name' => Str::random(5),
+        'slug' => $faker->unique()->numberBetween(1000000, 1000000000),
+        'short_description' => Str::random(10),
+        'description' => Str::random(100),
+        'regular_price' => $faker->numberBetween(500, 1000),
+        'stock_status' => 'instock',
+        'quantity' => $faker->numberBetween(100, 1000),
     ];
 });
