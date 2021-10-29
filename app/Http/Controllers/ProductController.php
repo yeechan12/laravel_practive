@@ -12,6 +12,8 @@ class ProductController extends Controller
     public function __construct(ProductRepository $productRepository)
     {
         $this->productRepository = $productRepository;
+
+        $this->middleware('auth');
     }
 
     /**
@@ -22,6 +24,8 @@ class ProductController extends Controller
     {
         $limit = (int) $request->query->get('limit', config('app.default.pagination'));
 
-        return $this->productRepository->selectAll()->paginate($limit);
+        $products = $this->productRepository->selectAll()->paginate($limit);
+
+        return view('home', compact('products'));
     }
 }

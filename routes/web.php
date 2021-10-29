@@ -22,6 +22,4 @@ Route::post('/login', 'LoginController@login')->name('login');
 Route::get('/callback', 'LoginController@callback')->name('callback');
 Route::post('/logout', 'LoginController@logout')->name('logout');
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/products', 'ProductController@getProducts');
+Route::get('/home', 'ProductController@getProducts')->name('home');
