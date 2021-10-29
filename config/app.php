@@ -234,4 +234,7 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],
 
+    'default' => [
+        'pagination' => 10,
+    ]
 ];
