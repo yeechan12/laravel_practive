@@ -19,7 +19,8 @@ Route::get('/', function () {
 
 Route::get('/login', 'LoginController@index');
 Route::post('/login', 'LoginController@login')->name('login');
-Route::get('/callback', 'SocialController@callback')->name('callback');
+Route::get('/callback', 'LoginController@callback')->name('callback');
+Route::post('/logout', 'LoginController@logout')->name('logout');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
